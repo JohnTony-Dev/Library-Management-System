@@ -33,8 +33,8 @@ $booking_history = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 <body>
 	<header>
-		<div class="container">
-			<h1>Trang mượn sách</h1>
+		<div class="header-box">
+			<h2 class="site-name">Trang mượn sách</h2>
 			<div class="user-options">
 				<a href="borrow_books.php">Trang chủ</a>
 				<a href="edit_profile.php">Chỉnh sửa thông tin</a>
@@ -43,7 +43,7 @@ $booking_history = $stmt->fetchAll(PDO::FETCH_ASSOC);
 			</div>
 		</div>
 	</header>
-	<h2>Lịch hẹn</h2>
+	<h2 class="title-header">Lịch hẹn</h2>
 	<div class="container">
 		<div class="booking-history">
 			<?php if (count($booking_history) > 0) { ?>
