@@ -66,10 +66,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <header>
-        <div class="container">
-            <h1>Trang mượn sách</h1>
+        <div class="header-box">
+            <h2 class="site-name">Trang mượn sách</h2>
             <div class="user-options">
-                <a href="borrow_books.php">Trang chủ</a>
                 <a href="edit_profile.php">Chỉnh sửa thông tin</a>
                 <a href="history.php">Xem lịch sử mượn sách</a>
                 <a href="booking_history.php">Xem lịch hẹn</a>
@@ -77,9 +76,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </header>
-
-    <div class="booking-form">
-        <h2>Đặt lịch hẹn</h2>
+    <h2 class="title-header">Đặt lịch hẹn</h2>
+    <div class="container">
         <br>
         <?php if (isset($blacklist_message)) { ?>
             <p><?php echo $blacklist_message; ?></p>
@@ -88,13 +86,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php if (isset($error_message)) { ?>
                 <p><?php echo $error_message; ?></p>
             <?php } ?>
-            <form method="post">
-                <input type="hidden" name="book_id" value="<?php echo $_GET['book_id']; ?>">
-                <label for="booking_date">Nhập ngày hẹn:</label><br>
-                <input type="date" id="booking_date" name="booking_date" min="<?php echo date('Y-m-d'); ?>" required><br>
-                <br>
-                <button type="submit">Xác nhận đặt lịch hẹn</button>
-            </form>
+            <div class="user-info">
+                <form method="post"  class="user-info-form">
+                    <input type="hidden" name="book_id" value="<?php echo $_GET['book_id']; ?>">
+                    <div class="row">
+                        <div class="col">
+                            <label for="booking_date">Nhập ngày hẹn:</label><br>
+                        </div>
+                        <div class="col">
+                            <input type="date" id="booking_date" name="booking_date" min="<?php echo date('Y-m-d'); ?>" required><br>
+                        </div>
+                    </div>
+                    <div class="save">
+                        <button type="submit">Xác nhận đặt lịch hẹn</button>
+                    </div>
+                </form>
+            </div>
         <?php } ?>
     </div>
 </body>

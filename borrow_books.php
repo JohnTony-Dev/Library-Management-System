@@ -79,28 +79,35 @@ $books_json = json_encode($books);
         }
 
         function appendBookElement(book) {
-            $('#bookList').append('<div class="book"><img src="' + book.image + '" alt="' + book.title + '"><div class="book-info"><h3>' + book.title + '</h3><p>Tác giả: ' + book.author + '</p><p>Số lượng: ' + book.quantity + '</p><form method="post"><input type="hidden" name="book_id" value="' + book.id + '"><button type="submit" class="borrow">Mượn sách</button></form></div></div>');
+            $('#bookList').append('<div class="book"><img src="' +
+                book.image + '" alt="' + book.title +
+                '"><div class="book-info"><p><b>' +
+                book.title + '</b></p><p>Tác giả: ' +
+                book.author + '</p><p>Số lượng: ' +
+                book.quantity + '</p><form method="post"><input type="hidden" name="book_id" value="' +
+                book.id + '"><button type="submit" class="borrow">Mượn sách</button></form></div></div>');
         }
     });
     </script>
 </head>
+
 <body>
-<header>
-    <div class="container">
-        <h1>Trang mượn sách</h1>
-        <div class="user-options">
-            <a href="edit_profile.php">Chỉnh sửa thông tin</a>
-            <a href="history.php">Xem lịch sử mượn sách</a>
-			<a href="booking_history.php">Xem lịch hẹn</a>
-			<a href="logout.php">Đăng xuất</a>
+    <header>
+        <div class="header-box">
+            <h2 class="site-name">Trang mượn sách</h2>
+            <div class="user-options">
+                <a href="edit_profile.php">Chỉnh sửa thông tin</a>
+                <a href="history.php">Xem lịch sử mượn sách</a>
+                <a href="booking_history.php">Xem lịch hẹn</a>
+                <a href="logout.php">Đăng xuất</a>
+            </div>
         </div>
+    </header>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Tìm kiếm sách">
+        </div>
+        <div class="book-list" id="bookList"></div>
     </div>
-</header>
-<div class="container">
-    <div class="search-bar">
-        <input type="text" id="searchInput" placeholder="Tìm kiếm sách...">
-    </div>
-    <div class="book-list" id="bookList"></div>
-</div>
 </body>
 </html>

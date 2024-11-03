@@ -36,8 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="styles.css"> 
+<head> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chỉnh sửa thông tin</title>
@@ -48,8 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
     <header>
-        <div class="container">
-            <h1>Trang mượn sách</h1>
+        <div class="header-box">
+            <h2 class="site-name">Trang mượn sách</h2>
             <div class="user-options">
                 <a href="borrow_books.php">Trang chủ</a>
                 <a href="history.php">Xem lịch sử mượn sách</a>
@@ -58,16 +57,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </header>
-    <h2>Chỉnh sửa thông tin</h2>
+    <h2 class="title-header">Chỉnh sửa thông tin</h2>
     <br>
-    <form method="post">
-        <label for="name">Họ và tên:</label><br>
-        <input type="text" id="name" name="name" value="<?php echo $user['name']; ?>" required><br>
-        <br>
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" value="<?php echo $user['email']; ?>" required><br>
-        <br>
-        <button type="submit">Lưu thông tin</button>
-    </form>
+    <div class="container">
+        <div class="user-info">
+            <form method="post" class="user-info-form">
+                <div class="row">
+                    <div class="col">
+                        <label for="name">Họ và tên:</label><br>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="name" name="name" value="<?php echo $user['name']; ?>" required><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label for="email">Email:</label><br>
+                    </div>
+                    <div class="col">
+                        <input type="email" id="email" name="email" value="<?php echo $user['email']; ?>" required><br>
+                    </div>
+                </div>
+                <div class="save">
+                    <button type="submit">Lưu thông tin</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
